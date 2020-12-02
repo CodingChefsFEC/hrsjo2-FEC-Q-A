@@ -1,4 +1,5 @@
 const express = require('express');
+const compression = require('compression');
 let app = express();
 let db = require('../database/index.js');
 var bodyParser = require('body-parser');
@@ -11,6 +12,7 @@ const port = 3001;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(compression());
 
 
 app.use(express.static(__dirname + '/../client/dist'));
